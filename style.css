@@ -1,0 +1,208 @@
+/* Google Font */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+/* Renk Paleti */
+:root {
+    --primary: #d63031; /* Haber Kırmızısı */
+    --dark: #2d3436;
+    --light: #ffffff;
+    --gray: #b2bec3;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; padding: 0; margin: 0; }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Üst Bar */
+.top-bar {
+    background: #222;
+    color: #bbb;
+    font-size: 12px;
+    padding: 8px 0;
+}
+.top-bar .container { display: flex; justify-content: space-between; align-items: center; }
+.social-icons a { color: #bbb; margin-left: 15px; }
+.social-icons a:hover { color: #fff; }
+
+/* Ana Header */
+.main-header {
+    background: var(--light);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+.header-flex { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+
+.logo h1 { font-size: 32px; margin: 0; color: var(--dark); letter-spacing: -1px; }
+.logo span { color: var(--primary); }
+
+nav ul { display: flex; gap: 25px; }
+nav a { font-weight: 600; text-transform: uppercase; font-size: 14px; color: var(--dark); }
+nav a:hover, nav a.active { color: var(--primary); }
+
+/* Son Dakika Bandı */
+.breaking-news-container {
+    background: #222;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    overflow: hidden;
+}
+.breaking-title {
+    background: var(--primary);
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 13px;
+    white-space: nowrap;
+}
+.breaking-content { flex-grow: 1; padding: 0 15px; font-size: 14px; }
+
+/* Ana Düzen */
+.main-layout {
+    display: grid;
+    grid-template-columns: 70% 28%; /* Sol geniş, sağ dar */
+    gap: 2%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+/* Haber Grid */
+.section-head { margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
+.section-head h2 { margin: 0; font-size: 20px; color: var(--dark); }
+.section-head .line { flex-grow: 1; height: 2px; background: #e0e0e0; }
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.news-card {
+    background: var(--light);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-bottom: 3px solid transparent;
+}
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-bottom-color: var(--primary);
+}
+.news-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.news-body { padding: 20px; }
+.news-date { font-size: 11px; color: #888; margin-bottom: 8px; display: block; }
+.news-title { font-size: 16px; font-weight: 700; line-height: 1.4; margin: 0; }
+.news-title:hover { color: var(--primary); }
+
+/* Sidebar Widgetları */
+.widget {
+    background: var(--light);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.widget-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: var(--dark);
+    position: relative;
+}
+.widget-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--primary);
+}
+
+/* Profil Kutusu (Mavi Tik için önemli) */
+.author-widget { text-align: center; }
+.profile-img-container {
+    position: relative;
+    width: 100px;
+    margin: 0 auto 10px;
+}
+.profile-box img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #eee;
+}
+.verified-badge {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: #3897f0; /* Mavi Tik Rengi */
+    background: #fff;
+    border-radius: 50%;
+    font-size: 20px;
+}
+.role { font-size: 12px; color: var(--primary); font-weight: 700; margin: 5px 0; }
+.bio { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 15px; }
+.btn-follow {
+    display: block;
+    background: #3897f0;
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.btn-follow:hover { background: #287dc0; }
+
+/* Reklam Alanı */
+.ad-widget {
+    background: #dfe6e9;
+    text-align: center;
+    padding: 40px 20px;
+    color: #636e72;
+    border: 1px dashed #b2bec3;
+}
+
+/* Footer */
+footer {
+    background: #1e272e;
+    color: #7f8c8d;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: auto;
+}
+.footer-logo { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+.footer-logo span { color: var(--primary); }
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .main-layout { grid-template-columns: 1fr; }
+    .header-flex { flex-direction: column; height: auto; padding: 15px 0; }
+    nav ul { margin-top: 15px; gap: 15px; font-size: 12px; }
+    .mobile-hidden { display: flex; flex-wrap: wrap; justify-content: center; }
+}
