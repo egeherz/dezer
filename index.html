@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bağlantılar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Animasyonlu Arka Plan */
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            padding: 15px;
+        }
+
+        /* Arka plan animasyonu keyframes */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Ana Kart Tasarımı (Daha kompakt) */
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            /* Boşlukları azalttım */
+            padding: 1.5rem 1rem;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 340px; /* Genişliği kıstım */
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Grid (Sütun) Düzeni */
+        .links {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* İki eşit sütun */
+            gap: 10px; /* Butonlar arası boşluk */
+        }
+
+        /* Buton Tasarımı (Daha küçük) */
+        .link-btn {
+            display: flex;
+            flex-direction: column; /* İkon üstte, yazı altta olsun */
+            align-items: center;
+            justify-content: center;
+            padding: 12px 10px; /* Buton iç boşluğunu azalttım */
+            text-decoration: none;
+            color: white;
+            background: rgba(255, 255, 255, 0.1); 
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9rem; /* Yazı boyutunu küçülttüm */
+        }
+
+        /* En son buton (WhatsApp) tam genişlik olsun */
+        .link-btn:last-child {
+            grid-column: span 2;
+            flex-direction: row; /* WhatsApp yan yana kalsın */
+            padding: 15px;
+        }
+        .link-btn:last-child i {
+            margin-right: 10px;
+            margin-bottom: 0;
+        }
+
+        /* Hover Efekti */
+        .link-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* İkon ayarları */
+        .link-btn i {
+            font-size: 1.5rem;
+            margin-bottom: 5px; /* İkon ile yazı arası boşluk */
+        }
+        
+        .fa-telegram-plane { color: #40B3E0; }
+        .fa-whatsapp { color: #25D366; }
+
+        .link-btn span {
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+
+    <audio id="bg-music" loop>
+        <source src="@tepkiyok.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="container">
+        <div class="links">
+            <a href="https://t.me/tepkiyok" target="_blank" class="link-btn">
+                <i class="fab fa-telegram-plane"></i>
+                <span>Telegram</span>
+            </a>
+
+            <a href="https://t.me/duslerimde" target="_blank" class="link-btn">
+                <i class="fab fa-telegram-plane"></i>
+                <span>Telegram K.</span>
+            </a>
+
+            <a href="https://t.me/hicligim" target="_blank" class="link-btn">
+                <i class="fab fa-telegram-plane"></i>
+                <span>Telegram K.</span>
+            </a>
+
+            <a href="https://t.me/dezermusiicbot" target="_blank" class="link-btn">
+                <i class="fab fa-telegram-plane"></i>
+                <span>Bot</span>
+            </a>
+
+            <a href="https://wa.me/3197010275850?text=selam" target="_blank" class="link-btn">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            var audio = document.getElementById("bg-music");
+            var playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {}).catch(error => {
+                    document.body.addEventListener('click', function() {
+                        audio.play();
+                    }, { once: true });
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
